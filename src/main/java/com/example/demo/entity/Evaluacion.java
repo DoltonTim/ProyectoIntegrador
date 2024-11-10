@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,4 +30,13 @@ public class Evaluacion {
 	private String Descripcion;
 	@Column(name = "Estado_Evaluacion")
 	private char Estado_Evaluacion;
+	
+	
+	@ManyToOne
+    @JoinColumn(name = "id_Rubro", nullable = false) // Aquí "facultad_id" es el nombre de la columna en la base de datos
+    private Rubro Rubro;
+	
+	@ManyToOne
+    @JoinColumn(name = "id_PPP", nullable = false) // Aquí "facultad_id" es el nombre de la columna en la base de datos
+    private PPP PPP;
 }

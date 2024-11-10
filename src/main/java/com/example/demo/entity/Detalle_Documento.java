@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,4 +32,8 @@ public class Detalle_Documento {
 	private LocalDateTime Fecha_Documento;
 	@Column(name = "Estado_Detalle_Do")
 	private char Estado_Detalle_Do;
+	
+	@ManyToOne
+    @JoinColumn(name = "id_Detalle_PPP", nullable = false) // Aquí "facultad_id" es el nombre de la columna en la base de datos
+    private Detalle_PPP Detalle_PPP;
 }

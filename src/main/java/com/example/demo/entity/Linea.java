@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,18 +24,17 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Table(name = "Plan")
-public class Plan {
+@Table(name = "Linea")
+public class Linea {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name = "Nombre", length = 100)
-	private String Nombre;
-	@Column(name = "Estado_Plan")
-	private char Estado_Plan;
+	@Column(name = "nombre", length = 100)
+	private String nombre;
+	@Column(name = "Estado")
+	private char Estado;
 	
-	@OneToMany(mappedBy = "Plan", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "Linea", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	@JsonIgnore
-	private List<Plan_Carrera>Plan_Carrera;
+	private List<PPP>PPP;
 }
-
